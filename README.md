@@ -1,6 +1,7 @@
 # Ubuntu Sublime Text 3 輸入中文
 目前ibus沒有很好的解決方案只能使用InputHelper的方式輸入中文(建議改用fcitx)  
-fcitx可用下列方式完美解決
+fcitx可用下列方式完美解決  
+P.S. 網路上有另外一種版本只能讓輸入框顯示在最底下，此版本可以讓輸入框顯示在游標下
 
 ## 環境配置
 - Ubuntu 14.04 LTS 64bit
