@@ -24,7 +24,7 @@ P.S. 記得先將ibus的shortcut給disable
 sudo cp libsublime-imfix.so /opt/sublime_text/
 ```
 
-## 4. fix subl command
+## 4. Fix subl Command
 vim /usr/bin/subl
 ```
 exec /opt/sublime_text/sublime_text "$@"
@@ -34,7 +34,7 @@ exec /opt/sublime_text/sublime_text "$@"
 LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so exec /opt/sublime_text/sublime_text "$@"
 ```
 
-## 5. fix 圖標連接
+## 5. Fix Unity Launchers
 vim /usr/share/applications/sublime_text.desktop
 ```
 Exec=/opt/sublime_text/sublime_text %F
