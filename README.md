@@ -19,12 +19,12 @@ LD_PRELOAD=./libsublime-imfix.so subl
 P.S. 記得先將ibus的shortcut給disable  
 以上步驟就可以支援中文輸入了，後續的步驟是設置command啟動與圖示啟動
 
-## 3. 將so檔放置在Sublime目錄下
+### 3. 將so檔放置在Sublime目錄下
 ```
 sudo cp libsublime-imfix.so /opt/sublime_text/
 ```
 
-## 4. Fix subl Command
+### 4. Fix subl Command
 vim /usr/bin/subl
 ```
 exec /opt/sublime_text/sublime_text "$@"
@@ -34,7 +34,7 @@ exec /opt/sublime_text/sublime_text "$@"
 LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so exec /opt/sublime_text/sublime_text "$@"
 ```
 
-## 5. Fix Unity Launchers
+### 5. Fix Unity Launchers
 vim /usr/share/applications/sublime_text.desktop
 ```
 Exec=/opt/sublime_text/sublime_text %F
