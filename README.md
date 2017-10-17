@@ -46,11 +46,15 @@ Exec=bash -c "LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so /opt/sublime_text
 ```
 
 ### 6.文件預設用subl開啟
-把gedit換成sublime-text
-Running on 13.04+, update the file: /etc/gnome/defaults.list.
+把gedit換成sublime-text  
+Running on 13.04+, update the file: /etc/gnome/defaults.list.  
+```
 sudo sed -i 's/gedit.desktop/sublime_text.desktop/g' /etc/gnome/defaults.list
-Pre-13.04: 
+```
+Pre-13.04:  
+```
 sudo sed -i 's/gedit.desktop/sublime_text.desktop/g' /usr/share/applications/defaults.list
+```
 
 ## 參考
 http://ajax-chen.blogspot.tw/2015/08/sublime-gcin.html  
