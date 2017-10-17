@@ -4,12 +4,13 @@ fcitx可用下列方式完美解決
 P.S. 網路上有另外一種版本只能讓輸入框顯示在最底下，此版本可以讓輸入框顯示在游標下
 
 ## 環境配置
-- Ubuntu 14.04 LTS 64bit
-- Sublime Text 3 Build 3103 deb
+- Ubuntu 14.04 LTS 64bit and Sublime Text 3 Build 3103 deb
+- Ubuntu 16.04 LTS 64bit and Sublime Text 3 Build 3143 deb
 - fcitx, fcitx-chewing
 
 ### 1. 編譯
 ```
+sudo apt-get install libgtk2.0-dev
 gcc -shared -o libsublime-imfix.so sublime-imfix.c `pkg-config --libs --cflags gtk+-2.0` -fPIC
 ```
 ### 2. 執行
@@ -25,7 +26,7 @@ sudo cp libsublime-imfix.so /opt/sublime_text/
 ```
 
 ### 4. Fix subl Command
-vim /usr/bin/subl
+sudo vim /usr/bin/subl
 ```
 exec /opt/sublime_text/sublime_text "$@"
 ```
@@ -34,8 +35,8 @@ exec /opt/sublime_text/sublime_text "$@"
 LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so exec /opt/sublime_text/sublime_text "$@"
 ```
 
-### 5. Fix Unity Launchers
-vim /usr/share/applications/sublime_text.desktop
+### 5. Fix Unity Launchers (圖示連結)
+sudo vim /usr/share/applications/sublime_text.desktop
 ```
 Exec=/opt/sublime_text/sublime_text %F
 ```
@@ -43,6 +44,13 @@ Exec=/opt/sublime_text/sublime_text %F
 ```
 Exec=bash -c "LD_PRELOAD=/opt/sublime_text/libsublime-imfix.so /opt/sublime_text/sublime_text %F"
 ```
+
+### 6.文件預設用subl開啟
+把gedit換成sublime-text
+Running on 13.04+, update the file: /etc/gnome/defaults.list.
+sudo sed -i 's/gedit.desktop/sublime_text.desktop/g' /etc/gnome/defaults.list
+Pre-13.04: 
+sudo sed -i 's/gedit.desktop/sublime_text.desktop/g' /usr/share/applications/defaults.list
 
 ## 參考
 http://ajax-chen.blogspot.tw/2015/08/sublime-gcin.html  
